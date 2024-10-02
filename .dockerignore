@@ -1,0 +1,13 @@
+.history
+data
+dist
+node_modules
+test
+.git
+.gitignore
+.eslintignore
+.eslintrc.json
+.prettierrc
+client.http
+Dockerfile
+README.md

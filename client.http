@@ -1,0 +1,133 @@
+@baseUrl = http://localhost:3000
+
+@authToken = {{authenticate.response.body.access_token}}
+
+# @name create_user 
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "name": "fabio",
+    "email": "fabio@gmail.com",
+    "password": "12345678"
+}
+###
+
+# @name findAll_user 
+GET {{baseUrl}}/users
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### 
+
+# @name delete_user 
+DELETE {{baseUrl}}/users/643a9619-615b-4fd8-b999-c7cdd51cb444
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### 
+
+# @name authenticate 
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+    "email": "fabio@gmail.com",
+    "password": "12345678"
+}
+###
+
+
+# @name create_customer 
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+    "name": "fabio",
+    "gender": "male",
+    "birthDate": "2021/01/31",
+    "maritialStatus": "married"
+}
+### 
+
+# @name find_customer 
+GET {{baseUrl}}/customers/14ba4c03-e7c3-4d40-8212-455ac23331fd
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name findAll_customer 
+GET {{baseUrl}}/customers
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### 
+
+# @name update_customer 
+PATCH {{baseUrl}}/customers
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "id": "308d61a9-f652-4730-80e2-9a8970d0e89a",
+    "name": "fabio2"
+}
+
+### 
+
+# @name delete_customer 
+DELETE {{baseUrl}}/customers/308d61a9-f652-4730-80e2-9a8970d0e89a
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### 
+
+# @name create_address 
+POST {{baseUrl}}/address
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "zipCode": "12345-678",
+    "street": "Rua Teste",
+    "number": 12,
+    "district": "Bairro Teste",
+    "state": "Minas Gerais",
+    "city": "Uberaba",
+    "customerId": "14ba4c03-e7c3-4d40-8212-455ac23331fd"
+}
+###
+
+# @name update_address 
+PATCH {{baseUrl}}/addresss
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "id": "b33c1fbd-bc54-4f72-87a8-f2d84e470079",
+    "name": "name test2"
+}
+
+### 
+
+# @name findAll_address 
+GET {{baseUrl}}/address
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### 
+
+# @name findAll_address 
+GET {{baseUrl}}/address/cust/14ba4c03-e7c3-4d40-8212-455ac23331fd
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### 
+
+# @name delete_address 
+DELETE {{baseUrl}}/address/ea505279-63c7-49b4-adc7-4e4dedd29c49
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+### 
